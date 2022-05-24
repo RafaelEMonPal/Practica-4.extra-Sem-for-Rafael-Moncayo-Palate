@@ -4,6 +4,7 @@
 
 ```cpp
 
+
 #include <Arduino.h>
  
  
@@ -21,16 +22,16 @@ void ToggleLED_green( void * parameter )
  
   // Turn the LED on
   digitalWrite(led1, HIGH);
- 
+  Serial.print("Led Green ON\n");
   // Pause the task for 5000ms
   vTaskDelay(3000 / portTICK_PERIOD_MS);
- 
+  Serial.print("Pause the task for 3000ms\n");
   // Turn the LED off
   digitalWrite(led1, LOW);
- 
+  Serial.print("Led Green OFF\n");
   // Pause the task for 5000ms
   vTaskDelay(6000 / portTICK_PERIOD_MS);
-   
+  Serial.print("Pause the task for 6000ms\n");
  
  
   }
@@ -42,16 +43,18 @@ void ToggleLED_yellow( void * parameter )
   for(;;){
  
   vTaskDelay(3000 / portTICK_PERIOD_MS);
- 
+  
   // Turn the LED on
   digitalWrite(led2, HIGH);
- 
+  Serial.print("Yellow intermitent:\n");
  for(int i=0;i!=10;i++)
-      {
+      { 
         vTaskDelay(150 / portTICK_PERIOD_MS);
         digitalWrite(led2, LOW);
+        Serial.print("Yellow on--");
         vTaskDelay(150 / portTICK_PERIOD_MS);
         digitalWrite(led2, HIGH);
+        Serial.print("Yellow off--");
       }
  
   // Turn the LED off
@@ -71,16 +74,16 @@ void ToggleLED_red( void * parameter )
   for(;;){
  
   vTaskDelay(6000 / portTICK_PERIOD_MS);
- 
+  Serial.print("Pause the task for 6000ms\n");
   // Turn the LED on
   digitalWrite(led3, HIGH);
- 
+  Serial.print("Led RED ON\n");
   // Pause the task for 5000ms
   vTaskDelay(3000 / portTICK_PERIOD_MS);
- 
+  Serial.print("Pause the task for 3000ms\n");
   // Turn the LED off
   digitalWrite(led3, LOW);
- 
+ Serial.print("Led RED OFF\n");
  
   }
 }
@@ -128,4 +131,5 @@ void loop()
  
 }
 
-``
+
+```
